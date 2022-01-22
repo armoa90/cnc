@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cnc.Views.InicioPage"   
+             BindingContext="{Binding Main ,Source={StaticResource Locator}}"        
+             Title="CSD EXA CNC">
+    <ContentPage.Content>
+      <ScrollView>
+            <StackLayout BindingContext="{Binding Inicio}" >
+                <Label FontAttributes="Bold"
+                       Padding="15" 
+                       FontSize="Large"   
+                       HorizontalOptions="Center">
+                </Label>
+                <Image
+                    Source="csdcnc"
+                    WidthRequest="300"
+                 ></Image>   
+                
+
+                <ActivityIndicator>
+                </ActivityIndicator>
+                <Button BackgroundColor="#2196F3"
+                            CornerRadius="80"                        
+                        
+                            Text="Torneos">
+
+                </Button>
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+
+</ContentPage>

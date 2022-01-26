@@ -2,7 +2,7 @@
 namespace Cnc.infraestructura
 {
     using ViewModels;
-    public class InstanceLocator
+     class InstanceLocator
     {
         #region Propiedades
         public MainViewModel Main

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cnc.Views.TorneoDetallePage"
+             BindingContext="{Binding Main ,Source={StaticResource Locator}}"             
+             Title="Detalles">
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding Torneo}">
+            <StackLayout
+                Padding="5">
+                <Label
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    Text="{Binding Torneo[0].Descripcion}"
+                    TextColor="white">                    
+                </Label>
+                <Label
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    Text="{Binding Torneo[0].Codigo}"
+                    TextColor="white">
+                </Label>
+            </StackLayout>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>

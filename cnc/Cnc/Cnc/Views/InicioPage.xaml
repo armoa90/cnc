@@ -15,14 +15,15 @@
                 <Image
                     Source="csdcnc"
                     WidthRequest="300"
-                 ></Image>   
-                
+                 ></Image>
 
-                <ActivityIndicator>
+
+                <ActivityIndicator IsRunning="{Binding IsRunning, Mode=TwoWay}" >
+                    
                 </ActivityIndicator>
                 <Button BackgroundColor="#2196F3"
                             CornerRadius="80"                        
-                        
+                            Command="{Binding TorneoCommand}"
                             Text="Torneos">
 
                 </Button>

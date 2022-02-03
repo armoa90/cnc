@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cnc.Views.TorneoDetallePage"
              BindingContext="{Binding Main ,Source={StaticResource Locator}}"             
-             Title="Detalles">
+             Title="Detalles"
+             Icon="info">
     <ContentPage.Content>
         <ScrollView
             BindingContext="{Binding Torneo}">
@@ -12,13 +13,13 @@
                 <Label
                     FontSize="Large"
                     FontAttributes="Bold"
-                    Text="{Binding Torneo[0].Descripcion}"
+                    Text="{Binding Torneo.Descripcion}"
                     TextColor="white">                    
                 </Label>
                 <Label
                     FontSize="Large"
                     FontAttributes="Bold"
-                    Text="{Binding Torneo[0].Codigo}"
+                    Text="{Binding Codigo.Codigo}"
                     TextColor="white">
                 </Label>
             </StackLayout>

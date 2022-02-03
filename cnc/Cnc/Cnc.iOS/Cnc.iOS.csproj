@@ -145,4 +145,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\ic_launcher.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\goleador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\vencidas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\posiciones.png" />
+  </ItemGroup>
 </Project>

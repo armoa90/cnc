@@ -10,7 +10,7 @@ namespace Cnc.ViewModels
     using Xamarin.Forms;
     using Views;
 
-    public class InicioViewModel
+    public class InicioViewModel : BaseViewModel
     {
         #region Propiedades
         public bool IsRunning

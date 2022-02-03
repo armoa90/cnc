@@ -1,7 +1,7 @@
 ﻿
 namespace Cnc.ViewModels
 {
-     class MainViewModel
+    public class MainViewModel
     {
         #region ViewModels
             public InicioViewModel Inicio

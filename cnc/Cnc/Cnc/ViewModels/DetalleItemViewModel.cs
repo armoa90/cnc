@@ -24,8 +24,11 @@
 
         private async void SelectTorneo()
         {
+            
+
             MainViewModel.GetInstance().TorneoDetalle = new TorneoDetalleViewModel(this);
-            await Application.Current.MainPage.Navigation.PushAsync(new TorneoDetallePage());
+            await Application.Current.MainPage.Navigation.PushAsync(new TorneoTabbedPage());
+
         }
         #endregion
     }

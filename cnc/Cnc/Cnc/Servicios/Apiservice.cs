@@ -11,7 +11,7 @@
     using Newtonsoft.Json.Linq;
     using Plugin.Connectivity;
 
-    class Apiservice
+    public class Apiservice
     {
          public async Task<Response> CheckConnection()
          {

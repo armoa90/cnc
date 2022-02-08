@@ -9,12 +9,12 @@ namespace Cnc.ViewModels
                 get;
                 set;
             }
-            public TorneoViewModel Torneo
+            public TorneosViewModel Torneos
             {
                 get;
                 set;
             }
-            public TorneoDetalleViewModel TorneoDetalle
+            public TorneoViewModel Torneo
             {
                 get;
                 set;

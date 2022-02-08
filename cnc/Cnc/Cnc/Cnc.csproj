@@ -19,6 +19,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\TorneoPage.xaml.cs">
+      <DependentUpon>TorneoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TorneosPage.xaml.cs">
+      <DependentUpon>TorneosPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Views\GoleadoresPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -28,10 +37,10 @@
     <EmbeddedResource Update="Views\PosicionesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TorneoDetallePage.xaml">
+    <EmbeddedResource Update="Views\TorneoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TorneoPage.xaml">
+    <EmbeddedResource Update="Views\TorneosPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\TorneoTabbedPage.xaml">

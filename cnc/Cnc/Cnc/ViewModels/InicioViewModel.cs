@@ -30,17 +30,17 @@ namespace Cnc.ViewModels
         {
             get
             {
-                return new RelayCommand(Torneo);
+                return new RelayCommand(Torneos);
             }
             
 
         }
 
-        private async void Torneo()
+        private async void Torneos()
         {
             this.IsRunning = true;
-            MainViewModel.GetInstance().Torneo = new TorneoViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new TorneoPage());
+            MainViewModel.GetInstance().Torneos = new TorneosViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new TorneosPage());
 
         }
 

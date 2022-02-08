@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Cnc.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TorneoDetallePage : ContentPage
+    public partial class TorneosPage : ContentPage
     {
-        public TorneoDetallePage()
+        public TorneosPage()
         {
             InitializeComponent();
         }

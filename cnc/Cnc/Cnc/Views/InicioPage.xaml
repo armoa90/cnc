@@ -5,8 +5,8 @@
              BindingContext="{Binding Main ,Source={StaticResource Locator}}"        
              Title="CSD EXA CNC">
     <ContentPage.Content>
-      <ScrollView>
-            <StackLayout BindingContext="{Binding Inicio}" >
+        <ScrollView BindingContext="{Binding Inicio}" >
+            <StackLayout >
                 <Label FontAttributes="Bold"
                        Padding="15" 
                        FontSize="Large"   

@@ -3,76 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cnc.Views.TorneoPage"
              BindingContext="{Binding Main ,Source={StaticResource Locator}}"             
-             Title="Torneos">
+             Title="Detalles"
+             Icon="info">
     <ContentPage.Content>
-        <StackLayout 
+        <ScrollView
             BindingContext="{Binding Torneo}">
-            <SearchBar
-                HeightRequest="46"
-                Text="{Binding Filter, Mode=TwoWay}"
-                Placeholder="Search..."
-                SearchCommand="{Binding SearchCommand}"
-                BackgroundColor="white"
-                >
-                
-            </SearchBar>
-            <ListView               
-                HasUnevenRows="true" 
-                IsPullToRefreshEnabled="true"
-                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
-                ItemsSource="{Binding Torneo}"
-                SeparatorVisibility="None"
-                RefreshCommand="{Binding RefreshCommand}">
+            <StackLayout
+                Padding="5">
+                <Label
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    Text="{Binding Torneo.Descripcion}"
+                    TextColor="white">                    
+                </Label>
+                <Label
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    Text="PRUEBA"
+                    TextColor="white">
+                </Label>
+                <Label
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    Text="{Binding Torneo.Codigo}"
+                    TextColor="white">
+                </Label>
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame
-                                CornerRadius="20"
-                                HasShadow="true"
-                                Margin="5">
-                                
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding SelectTorneoCommand}"/>
-                                </Frame.GestureRecognizers>
-
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <StackLayout 
-                                        Grid.Column="1"
-                                        VerticalOptions="Center">
-                                        <Label 
-                                            FontAttributes="Bold"
-                                            FontSize="Medium" 
-                                            Text="{Binding Descripcion}"   
-                                            TextColor="Black"
-                                            VerticalOptions="CenterAndExpand"
-                                            >
-                                        </Label>
-                                        
-                                    </StackLayout>
-                                    <Image 
-                                        Grid.Column="1"
-                                        HorizontalOptions="End" 
-                                        Source="ic_launcher"
-                                        WidthRequest="40">
-                                    </Image>
-
-                                </Grid>
-
-                            </Frame>
-                            
-
-                        </ViewCell>
-
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-
-            </ListView>
-
-        </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        
     </ContentPage.Content>
 </ContentPage>

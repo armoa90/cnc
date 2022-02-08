@@ -5,7 +5,7 @@
              x:Class="Cnc.Views.TorneoTabbedPage"
             Title="Torneo">
     <TabbedPage.Children>
-        <tabs:TorneoDetallePage/>
+        <tabs:TorneoPage/>
         <tabs:PosicionesPage/>
         <tabs:GoleadoresPage/>
         <tabs:VencidasPage/>

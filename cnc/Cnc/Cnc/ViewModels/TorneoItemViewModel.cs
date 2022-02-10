@@ -13,9 +13,7 @@
     public class TorneoItemViewModel : Torneo
     {
 
-        #region Servicios
-        private Apiservice apiService;
-        #endregion
+      
         #region commands
 
         public ICommand SelectTorneoCommand
@@ -30,7 +28,10 @@
         {
             
 
+           
             MainViewModel.GetInstance().Torneo = new TorneoViewModel(this);
+            MainViewModel.GetInstance().Posiciones = new PosicionesViewModel(this.Codigo);
+
             await Application.Current.MainPage.Navigation.PushAsync(new TorneoTabbedPage());
 
         }

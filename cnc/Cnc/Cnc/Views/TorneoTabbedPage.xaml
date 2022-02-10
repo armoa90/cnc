@@ -9,7 +9,7 @@
         <tabs:PosicionesPage/>
         <tabs:GoleadoresPage/>
         <tabs:VencidasPage/>
-        
+
     </TabbedPage.Children>
     
 </TabbedPage>

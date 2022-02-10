@@ -20,6 +20,12 @@ namespace Cnc.ViewModels
                 set;
 
             }
+            public PosicionesViewModel Posiciones
+            {
+                get;
+                set;
+
+            }
         #endregion
         #region Constructor
         public MainViewModel()

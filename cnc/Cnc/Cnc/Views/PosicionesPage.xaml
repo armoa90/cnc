@@ -6,7 +6,7 @@
              Title="Posiciones"
              Icon="posiciones">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BindingContext="{Binding Posiciones}">
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />

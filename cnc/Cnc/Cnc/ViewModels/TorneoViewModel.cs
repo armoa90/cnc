@@ -21,7 +21,5 @@ namespace Cnc.ViewModels
                 this.Torneo = torneo;
             }
         #endregion
-
-
     }
 }

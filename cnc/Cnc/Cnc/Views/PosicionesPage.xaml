@@ -104,13 +104,16 @@
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
+                            
                             <Label
                                 Grid.Column="0"                           
                                 Text="{Binding Equipo}"
-                                HorizontalOptions="StartAndExpand"
-                                VerticalOptions="StartAndExpand">
+                                HorizontalOptions="End"
+                                VerticalOptions="End">
                             </Label>
                             
+
+
                             <Label
                                 Grid.Column="1"                                
                                 HorizontalOptions="EndAndExpand"

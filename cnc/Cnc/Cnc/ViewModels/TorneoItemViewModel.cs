@@ -32,6 +32,7 @@
             MainViewModel.GetInstance().Torneo = new TorneoViewModel(this);
             MainViewModel.GetInstance().Posiciones = new PosicionesViewModel(this.Codigo);
             MainViewModel.GetInstance().Goleadores = new GoleadoresViewModel(this.Codigo);
+            MainViewModel.GetInstance().Vencidas = new VencidasViewModel(this.Codigo);
 
             await Application.Current.MainPage.Navigation.PushAsync(new TorneoTabbedPage());
 

@@ -32,6 +32,12 @@ namespace Cnc.ViewModels
                 set;
 
             }
+            public VencidasViewModel Vencidas
+            {
+                get;
+                set;
+
+            }
         #endregion
         #region Constructor
         public MainViewModel()

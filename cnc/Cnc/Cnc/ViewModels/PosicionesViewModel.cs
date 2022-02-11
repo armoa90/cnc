@@ -21,6 +21,7 @@ namespace Cnc.ViewModels
         #region Atributos
         private int cod_torneo;
         private ObservableCollection<Posiciones> posiciones;
+        private bool isRefreshing;
         //private List<Posiciones> PosicionesList;
         #endregion
 
@@ -30,22 +31,28 @@ namespace Cnc.ViewModels
             get { return this.posiciones; }
             set { SetValue(ref this.posiciones, value); }
         }
+        public bool IsRefreshing
+        {
+            get { return this.isRefreshing; }
+            set { SetValue(ref this.isRefreshing, value); }
+        }
         #endregion
         #region Constructor
         public PosicionesViewModel(int cod_torneo)
         {
             this.cod_torneo = cod_torneo;
             this.apiService = new Apiservice();
-            this.LoadPosiciones( this.cod_torneo);
+            this.LoadPosiciones();
         }
         #endregion
         #region Metodos
-            private async void LoadPosiciones(int cod_torneo)
+            private async void LoadPosiciones()
             {
+                this.IsRefreshing = true;
                 var response = await this.apiService.GetList<Posiciones>(
                 "http://exacnc.com",
                 "/rest",
-                "/posiciones/" + cod_torneo,
+                "/posiciones/" + this.cod_torneo,
                 "ApiUserAdmin",
                 "ApiUserAdmin");
                 if (!response.IsSuccess)
@@ -60,15 +67,27 @@ namespace Cnc.ViewModels
                 }
                 //this.PosicionesList = (List<Posiciones>)response.Result;
                 var list = (List<Posiciones>)response.Result;
-            //this.ListTorn = (List<TorneoList>)objTorneos.TorneoList;
+                //this.ListTorn = (List<TorneoList>)objTorneos.TorneoList;
 
-            //var list =(Torneo)response.Result;
+                //var list =(Torneo)response.Result;
 
-            this.Posiciones = new ObservableCollection<Posiciones>(list);
+                this.Posiciones = new ObservableCollection<Posiciones>(list);
 
-                //this.IsRefreshing = false;
+                this.IsRefreshing = false;
             }
 
+        #endregion
+        #region Commands
+        public ICommand RefreshCommand
+        {
+
+            get
+            {
+                return new RelayCommand(LoadPosiciones);
+
+            }
+
+        }
         #endregion
 
     }

@@ -26,6 +26,12 @@ namespace Cnc.ViewModels
                 set;
 
             }
+            public GoleadoresViewModel Goleadores
+            {
+                get;
+                set;
+
+            }
         #endregion
         #region Constructor
         public MainViewModel()

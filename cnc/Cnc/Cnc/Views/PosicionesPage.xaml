@@ -6,7 +6,7 @@
              Title="Posiciones"
              Icon="posiciones">
    
-        <StackLayout BindingContext="{Binding Posiciones}">
+     <StackLayout BindingContext="{Binding Posiciones}">
         <Grid
             Padding="8">
             <Grid Grid.Row="0">

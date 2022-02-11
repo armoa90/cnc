@@ -5,11 +5,160 @@
              BindingContext="{Binding Main ,Source={StaticResource Locator}}"             
              Title="Posiciones"
              Icon="posiciones">
-    <ContentPage.Content>
+   
         <StackLayout BindingContext="{Binding Posiciones}">
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+        <Grid
+            Padding="8">
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Column="0"
+                    Text="EQUIPOS"
+                    FontAttributes="Bold"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="Center"
+                    >
+                </Label>
+                <Label
+                    Grid.Column="1"
+                    Text="PTS"
+                    FontAttributes="Bold"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    >
+                </Label>
+                <Label
+                    Grid.Column="2"
+                    Text="PG"
+                    FontAttributes="Bold"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    >
+                </Label>
+                <Label
+                    Grid.Column="3"
+                    Text="PE"
+                    FontAttributes="Bold"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    >
+                </Label>
+                <Label
+                    Grid.Column="4"
+                    Text="PP"
+                    FontAttributes="Bold"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    >
+                </Label>
+                <Label
+                    Grid.Column="5"
+                    Text="GF"
+                    FontAttributes="Bold"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    >
+                </Label>
+                <Label
+                    Grid.Column="6"
+                    Text="GC"
+                    FontAttributes="Bold"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    >
+                </Label>
+                <Label
+                    Grid.Column="7"
+                    Text="Dif"
+                    FontAttributes="Bold"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    >
+                </Label>
+            </Grid>
+        </Grid>
+        <ListView
+            ItemsSource="{Binding Posiciones}"
+            HasUnevenRows="True"
+            IsPullToRefreshEnabled="True"
+            RefreshCommand="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="15">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90"></ColumnDefinition>                                
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Column="0"                           
+                                Text="{Binding Equipo}"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="StartAndExpand">
+                            </Label>
+                            
+                            <Label
+                                Grid.Column="1"                                
+                                HorizontalOptions="EndAndExpand"
+                                VerticalOptions="EndAndExpand"
+                                Text="{Binding Puntos}">
+                            </Label>
+                            <Label
+                                Grid.Column="2"                               
+                                HorizontalOptions="EndAndExpand"
+                                VerticalOptions="EndAndExpand"
+                                Text="{Binding PG}">
+                            </Label>
+                            <Label
+                                Grid.Column="3"                              
+                                 HorizontalOptions="EndAndExpand"
+                                VerticalOptions="EndAndExpand"
+                                Text="{Binding PE}">
+                            </Label>
+                            <Label
+                                Grid.Column="4"                               
+                                 HorizontalOptions="EndAndExpand"
+                                VerticalOptions="EndAndExpand"
+                                Text="{Binding PP}">
+                            </Label>
+                            <Label
+                                Grid.Column="5"                               
+                                 HorizontalOptions="EndAndExpand"
+                                VerticalOptions="EndAndExpand"
+                                Text="{Binding GF}">
+                            </Label>
+                            <Label
+                                Grid.Column="6"                               
+                                HorizontalOptions="EndAndExpand"
+                                VerticalOptions="EndAndExpand"
+                                Text="{Binding GC}">
+                            </Label>
+                            <Label
+                                Grid.Column="7"                               
+                                 HorizontalOptions="EndAndExpand"
+                                VerticalOptions="EndAndExpand"
+                                Text="{Binding DIF}">
+                            </Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+    
 </ContentPage>

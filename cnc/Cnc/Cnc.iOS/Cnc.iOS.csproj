@@ -157,4 +157,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\posiciones.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AppIcon%402x.png" />
+  </ItemGroup>
 </Project>

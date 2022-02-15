@@ -38,6 +38,12 @@ namespace Cnc.ViewModels
                 set;
 
             }
+            public CalendarioViewModel Calendarios
+            {
+                get;
+                set;
+
+            }
         #endregion
         #region Constructor
         public MainViewModel()

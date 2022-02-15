@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="Cnc.Views.CalendarioPage"             
+             BindingContext="{Binding Main ,Source={StaticResource Locator}}"             
+             Title="Fixture"
+             Icon="calendar">
+    <StackLayout BindingContext="{Binding Calendarios}">
+        <CollectionView ItemsSource="{Binding Calendarios}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" 
+                                 VerticalItemSpacing="5"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="90" />
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0">
+                                <Image                                   
+                                        HeightRequest="30"                               
+                                        HorizontalOptions="StartAndExpand" 
+                                        Source= "{Binding Imagena }"
+                                        WidthRequest="30" ></Image>
+                                <Label Text="{Binding Equipoa}"
+                                       HorizontalOptions="StartAndExpand" 
+                                        VerticalOptions="Center" />
+                            </StackLayout> 
+                            <StackLayout Grid.Column="1"
+                                            VerticalOptions="Center">
+                                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="Center">
+                                    <Label Text="Semana"
+                                           VerticalOptions="Center" />
+                                    <Label Text="{Binding Semana}"
+                                           VerticalOptions="Center" />
+                                    
+                                    <Label Text="Partido"
+                                           VerticalOptions="Center" />
+                                    <Label Text="{Binding Partido}"
+                                           VerticalOptions="Center" />
+                                    
+                                     <Label Text="Inicio :"
+                                           VerticalOptions="Center" />                                    
+                                    <Label Text="{Binding Hora_partido, StringFormat='{0:yyyy/MM/dd HH:mm}'}"
+                                           VerticalOptions="Center" />
+
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="Center" 
+                                                Orientation="Horizontal">
+                                    <Label FontAttributes="Bold"  
+                                           FontSize="30"                                            
+                                            Text="{Binding Gol_a}"/>
+                                    <Label Text="Vs."
+                                           FontSize="30"   
+                                            VerticalOptions="Center"/>
+                                    <Label FontAttributes="Bold" 
+                                           
+                                           FontSize="30"   
+                                            Text="{Binding Gol_b}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="Center">
+                                    <Label Text="{Binding Estado}"
+                                           
+                                           VerticalOptions="Center" />
+                                    
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Grid.Column="2">
+                                <Image
+                                Grid.Column="2"
+                                        HeightRequest="30"                               
+                                        HorizontalOptions="EndAndExpand" 
+                                        Source= "{Binding Imagenb }"
+                                        WidthRequest="30"
+                             ></Image>
+                                <Label Text="{Binding Equipob}"
+                                       HorizontalOptions="EndAndExpand" 
+                                           VerticalOptions="End" />
+                            </StackLayout>
+                            
+                            
+                        </Grid>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+
+
+</ContentPage>

@@ -2,14 +2,90 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cnc.Views.VencidasPage"
+              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              BindingContext="{Binding Main ,Source={StaticResource Locator}}"             
              Title="Vencidas"
              IconImageSource="vencidas">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    
+    <StackLayout BindingContext="{Binding Vencidas}">
+        <Grid 
+            Padding="8">
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Column="0"
+                    Text="Equipo"                    
+                    FontAttributes="Bold"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="Center"
+                    >
+                </Label>
+                <Label
+                    Grid.Column="1"                       
+                    FontAttributes="Bold"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="Center"
+                    >
+                </Label>
+
+                <Label
+                    Grid.Column="2"
+                    Text="Goles"
+                    FontAttributes="Bold"
+                    HorizontalOptions="StartAndExpand"
+                    
+                    >
+                </Label>
+            </Grid>
+        </Grid>
+        <ListView
+            ItemsSource="{Binding Vencidas}"
+            HasUnevenRows="True"
+            IsPullToRefreshEnabled="True"
+            RefreshCommand="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <controls:CircleImage
+                                Grid.Column="0"
+                                        HeightRequest="20"                               
+                                        HorizontalOptions="StartAndExpand" 
+                                        Source= "{Binding Imagen}"
+                                        WidthRequest="20">
+                            </controls:CircleImage>
+                            <Label
+                                Grid.Column="1"                           
+                                Text="{Binding Equipo}"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="StartAndExpand"
+                                >
+
+                            </Label>
+
+                            <Label
+                                Grid.Column="2"                                
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="StartAndExpand"
+                                Text="{Binding Goles}">
+                            </Label>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+    
 </ContentPage>

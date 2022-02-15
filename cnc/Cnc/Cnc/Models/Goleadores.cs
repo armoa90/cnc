@@ -13,6 +13,8 @@ namespace Cnc.Models
         public string Jugador { get; set; }
         public int Goles { get; set; }
         public string Equipo { get; set; }
+
+        public string Imagen { get; set; }
     }
 }
 

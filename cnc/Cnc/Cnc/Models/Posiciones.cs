@@ -9,8 +9,14 @@ namespace Cnc.Models
     using System.Text;
     public class Posiciones
     {
-       [JsonProperty(PropertyName = "Equipo")]
+
+
+        [JsonProperty(PropertyName = "Codigo")]
+        public int Codigo { get; set; }
+        [JsonProperty(PropertyName = "Equipo")]
         public string Equipo { get; set; }
+        [JsonProperty(PropertyName = "Imagen")]
+        public string Imagen { get; set; }
         [JsonProperty(PropertyName = "Puntos")]
         public int Puntos { get; set; }
         [JsonProperty(PropertyName = "PG")]

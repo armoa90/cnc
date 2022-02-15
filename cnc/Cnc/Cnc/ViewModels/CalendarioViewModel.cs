@@ -1,6 +1,5 @@
 ﻿namespace Cnc.ViewModels
 {
-
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
@@ -10,25 +9,25 @@
     using System.Windows.Input;
     using GalaSoft.MvvmLight.Command;
     using System.Linq;
-
-    public class VencidasViewModel : BaseViewModel
+    public class CalendarioViewModel : BaseViewModel
     {
         #region Servicios
         private Apiservice apiService;
         #endregion
 
+
         #region Atributos
         private int cod_torneo;
-        private ObservableCollection<Vencidas> vencidas;
+        private ObservableCollection<Calendarios> calendarios;
         private bool isRefreshing;
         //private List<Posiciones> PosicionesList;
         #endregion
 
         #region propiedades
-        public ObservableCollection<Vencidas> Vencidas
+        public ObservableCollection<Calendarios> Calendarios
         {
-            get { return this.vencidas; }
-            set { SetValue(ref this.vencidas, value); }
+            get { return this.calendarios; }
+            set { SetValue(ref this.calendarios, value); }
         }
         public bool IsRefreshing
         {
@@ -36,28 +35,27 @@
             set { SetValue(ref this.isRefreshing, value); }
         }
         #endregion
-
-
         #region Constructor
-        public VencidasViewModel(int cod_torneo)
+        public CalendarioViewModel(int cod_torneo)
         {
             this.cod_torneo = cod_torneo;
             this.apiService = new Apiservice();
-            this.LoadVencidas();
+            this.LoadCalendario();
         }
         #endregion
         #region Metodos
-        private async void LoadVencidas()
+        private async void LoadCalendario()
         {
-            var response = await this.apiService.GetList<Vencidas>(
+            this.IsRefreshing = true;
+            var response = await this.apiService.GetList<Calendarios>(
             "http://exacnc.com",
             "/rest",
-            "/vencidas/" + this.cod_torneo,
+            "/fixture/" + this.cod_torneo,
             "ApiUserAdmin",
             "ApiUserAdmin");
             if (!response.IsSuccess)
             {
-                this.IsRefreshing = false;
+                //this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     response.Message,
@@ -66,15 +64,16 @@
                 return;
             }
             //this.PosicionesList = (List<Posiciones>)response.Result;
-            var list = (List<Vencidas>)response.Result;
+            var list = (List<Calendarios>)response.Result;
             //this.ListTorn = (List<TorneoList>)objTorneos.TorneoList;
 
             //var list =(Torneo)response.Result;
 
-            this.Vencidas = new ObservableCollection<Vencidas>(list);
+            this.Calendarios = new ObservableCollection<Calendarios>(list);
 
             this.IsRefreshing = false;
         }
+
         #endregion
         #region Commands
         public ICommand RefreshCommand
@@ -82,7 +81,7 @@
 
             get
             {
-                return new RelayCommand(LoadVencidas);
+                return new RelayCommand(LoadCalendario);
 
             }
 

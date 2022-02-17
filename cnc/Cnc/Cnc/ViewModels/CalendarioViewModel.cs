@@ -20,7 +20,8 @@
         private int cod_torneo;
         private ObservableCollection<Calendarios> calendarios;
         private bool isRefreshing;
-        //private List<Posiciones> PosicionesList;
+        private string filter;
+        private List<Calendarios> CalendariosList;
         #endregion
 
         #region propiedades
@@ -33,6 +34,16 @@
         {
             get { return this.isRefreshing; }
             set { SetValue(ref this.isRefreshing, value); }
+        }
+        public string Filter
+        {
+            get { return this.filter; }
+            set
+            {
+
+                SetValue(ref this.filter, value);
+                this.Search();
+            }
         }
         #endregion
         #region Constructor
@@ -64,12 +75,13 @@
                 return;
             }
             //this.PosicionesList = (List<Posiciones>)response.Result;
-            var list = (List<Calendarios>)response.Result;
+            //var list 
+                this.CalendariosList = (List<Calendarios>)response.Result;
             //this.ListTorn = (List<TorneoList>)objTorneos.TorneoList;
 
             //var list =(Torneo)response.Result;
 
-            this.Calendarios = new ObservableCollection<Calendarios>(list);
+            this.Calendarios = new ObservableCollection<Calendarios>(this.CalendariosList);
 
             this.IsRefreshing = false;
         }
@@ -85,6 +97,37 @@
 
             }
 
+        }
+        public ICommand SearchCommand
+        {
+            get
+            {
+                return new RelayCommand(Search);
+            }
+        }
+
+        private void Search()
+        {
+            if (string.IsNullOrEmpty(this.Filter))
+            {
+                /*this.Torneo = new ObservableCollection<DetalleItemViewModel>(
+                this.toDetalleItemViewModel());*/
+                //this.Torneos = new ObservableCollection<TorneoItemViewModel>(this.toTorneoItemViewModel());
+                this.Calendarios = new ObservableCollection<Calendarios>(this.CalendariosList);
+            }
+            else
+            {
+                /*this.Torneos = new ObservableCollection<DetalleItemViewModel>(
+                    this.toDetalleItemViewModel().Where(
+                        l => l.Descripcion.ToLower().Contains(this.Filter.ToLower())));*/
+
+                this.Calendarios = new ObservableCollection<Calendarios>(
+                    this.CalendariosList.Where(
+                        l => l.Equipoa.ToLower().Contains(this.filter.ToLower()) ||
+                             l.Equipob.ToLower().Contains(this.filter.ToLower())
+                        ));
+
+            }
         }
         #endregion
     }

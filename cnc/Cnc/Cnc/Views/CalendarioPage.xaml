@@ -7,10 +7,21 @@
              Title="Fixture"
              Icon="calendar">
     <StackLayout BindingContext="{Binding Calendarios}" >
+        <SearchBar
+                HeightRequest="46"
+                Text="{Binding Filter, Mode=TwoWay}"
+                Placeholder="Search..."
+                SearchCommand="{Binding SearchCommand}"
+                BackgroundColor="white"
+                >
+
+        </SearchBar>
         <RefreshView
             Command="{Binding RefreshCommand}"
             IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
-            <CollectionView ItemsSource="{Binding Calendarios}" >
+            
+            <CollectionView ItemsSource="{Binding Calendarios}" 
+                            EmptyView="Aun no se programaron los partidos">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" 
                                  VerticalItemSpacing="5"/>
@@ -38,7 +49,7 @@
                                             VerticalOptions="Center">
                                     <StackLayout Orientation="Horizontal"
                                              HorizontalOptions="Center">
-                                        <Label Text="Semana"
+                                        <Label Text="Fecha"
                                            VerticalOptions="Center" />
                                         <Label Text="{Binding Semana}"
                                            VerticalOptions="Center" />
@@ -59,7 +70,7 @@
                                         <Label FontAttributes="Bold"  
                                            FontSize="30"                                            
                                             Text="{Binding Gol_a}"/>
-                                        <Label Text="Vs."
+                                        <Label Text="VS"
                                            FontSize="30"   
                                             VerticalOptions="Center"/>
                                         <Label FontAttributes="Bold" 
@@ -77,12 +88,14 @@
                                 </StackLayout>
                                 <StackLayout Grid.Column="2">
                                     <Image
-                                Grid.Column="2"
+                                        Grid.Column="2"
                                         HeightRequest="30"                               
                                         HorizontalOptions="EndAndExpand" 
                                         Source= "{Binding Imagenb }"
                                         WidthRequest="30"
-                             ></Image>
+                                        
+                                    ></Image>
+                                    
                                     <Label Text="{Binding Equipob}"
                                        HorizontalOptions="EndAndExpand" 
                                            VerticalOptions="End" />

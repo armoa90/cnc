@@ -62,7 +62,8 @@
                                         HeightRequest="20"                               
                                         HorizontalOptions="StartAndExpand" 
                                         Source= "{Binding Imagen}"
-                                        WidthRequest="20">
+                                        WidthRequest="20"
+                                >
                             </controls:CircleImage>
                             <Label
                                 Grid.Column="1"                           
